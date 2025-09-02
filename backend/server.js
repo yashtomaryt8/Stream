@@ -4,6 +4,10 @@ import connectToDatabase from './src/db/db.js'
 
 connectToDatabase();
 
+
+app.use("/", (req, res) => res.send("API is Working"));
+
+
 app.listen(3000,()=>{
     console.log("server is running on http://localhost:3000");
     
