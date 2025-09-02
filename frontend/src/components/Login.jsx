@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../styles/Login.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-
+const API = import.meta.env.VITE_BACKEND_URL;
 
 const Login = () => {
 
@@ -15,7 +15,7 @@ const Login = () => {
     function handleLogin(event){
       event.preventDefault();
 
-      axios.post("http://localhost:3000/auth/login",
+      axios.post(`${API}/auth/login`,
         {
            username,password
         },

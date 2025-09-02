@@ -3,6 +3,7 @@ import '../styles/Upload.css';
 import { useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const API = import.meta.env.VITE_BACKEND_URL;
 
 
 const Upload = () => {
@@ -22,7 +23,7 @@ const handleSubmit=(e)=>{
         // In a real app, you would upload the files to a server here
         // For now, we'll just add the song to the Redux store
         
-        axios.post('http://localhost:3000/songs/upload', formData,
+        axios.post(`${API}/songs/upload`, formData,
           { withCredentials:true}
         )
         .then(response=>{

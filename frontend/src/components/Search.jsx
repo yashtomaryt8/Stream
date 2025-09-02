@@ -5,6 +5,7 @@ import { setCurrentSong, togglePlayPause, selectCurrentSong, selectIsPlaying, se
 import NowPlayingBar from './NowPlayingBar';
 import '../styles/Search.css';
 import axios from 'axios';
+const API = import.meta.env.VITE_BACKEND_URL;
 
 
 
@@ -20,7 +21,7 @@ const Search = () => {
   const handleSearchChange = (e) => {
     const text = e.target.value;
     setSearchText(text);
-    axios.get(`http://localhost:3000/songs/search-songs?text=${text}`,
+    axios.get(`${API}/search-songs?text=${text}`,
       { withCredentials: true }
     ).then((response => {
       dispatch(setFilteredSongs(response.data.songs));

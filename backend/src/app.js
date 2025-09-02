@@ -7,7 +7,10 @@ import cors from 'cors';
 const app= express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: [
+    "http://localhost:5173",         // local frontend
+    "https://steam-dusky.vercel.app" // deployed frontend
+  ],
   credentials: true
 }))
 

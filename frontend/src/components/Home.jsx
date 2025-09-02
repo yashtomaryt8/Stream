@@ -7,6 +7,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import NowPlayingBar from './NowPlayingBar';
+const API = import.meta.env.VITE_BACKEND_URL;
+// console.log(API);
 
 const Home = () => {
   const audioRef = useRef(null);
@@ -64,7 +66,7 @@ const Home = () => {
 
   useEffect(()=>{
 
-    axios.get("http://localhost:3000/songs/get", {
+    axios.get(`${API}/songs/get`, {
       withCredentials: true
     })
     .then(response => {
