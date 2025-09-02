@@ -1,15 +1,19 @@
 import app from "./src/app.js";
 import connectToDatabase from "./src/db/db.js";
 
-connectToDatabase();
+const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.send("✅ API is working in Backend");
 });
 
-
-app.listen(3000, () => {
-    console.log("Server is running on port http://localhost:3000");
-    })
-
-export default app;
+connectToDatabase()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running at http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Failed to connect to DB:", err);
+    process.exit(1);
+  });
