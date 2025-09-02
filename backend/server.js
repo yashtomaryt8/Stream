@@ -5,7 +5,7 @@ import connectToDatabase from './src/db/db.js'
 connectToDatabase();
 
 
-app.use("/", (req, res) => res.send("API is Working"));
+app.use("/", (req, res) => res.send("API is Working in Backend"));
 
 
 app.listen(3000,()=>{
