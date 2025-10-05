@@ -9,7 +9,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",          // local frontend
-    // "https://stream-sandy-eight.vercel.app"  // deployed frontend
+    "https://steam-henna.vercel.app"  // deployed frontend
   ],
   credentials: true
 }));
