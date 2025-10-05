@@ -28,7 +28,13 @@ export async function registerUser(req,res){
              process.env.JWT_SECRET_KEY,
             {expiresIn: "1d"})    //1day
 
-            res.cookie("token", token)
+            res.cookie("token", token, {
+                httpOnly: true,
+                secure: true,       // must be true on HTTPS
+                sameSite: "none",   // allows cross-site cookies
+                maxAge: 24 * 60 * 60 * 1000, // 1 day
+                });
+
             //set cookie in response
 
         //Response send krne se phle token generate krege 
@@ -90,15 +96,17 @@ export async function registerUser(req,res){
                 });
             }
             try {
-                const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-                
+               const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+                const user = await userModel.findById(decoded.id);
+
                 return res.status(200).json({
-                    user: {
-                        id: decoded.id,
-                        username: decoded.username,
-                    },
-                    message: "User authenticated successfully"
+                user: {
+                    id: user._id,
+                    username: user.username,
+                },
+                message: "User authenticated successfully"
                 });
+
     }
             catch (error) {
                 return res.status(401).json({
