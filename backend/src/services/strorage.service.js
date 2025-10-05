@@ -4,7 +4,7 @@ import ImageKit from "imagekit";
 import dotenv from "dotenv";
 
 dotenv.config();
-console.log(process.env.IMAGEKIT_PUBLIC_KEY)
+// console.log(process.env.IMAGEKIT_PUBLIC_KEY)
 
 var imagekit = new ImageKit({
     publicKey : process.env.IMAGEKIT_PUBLIC_KEY,
