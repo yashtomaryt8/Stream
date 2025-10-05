@@ -15,7 +15,7 @@ const Register = () => {
     // ✅ Use env var instead of hardcoded localhost
     const API = import.meta.env.VITE_BACKEND_URL;
 
-    axios.post(`${API}/auth/register`, {
+    axios.post(`${API}/api/auth/register`, {
       username,
       password
     }, {

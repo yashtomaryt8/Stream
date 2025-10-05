@@ -66,7 +66,7 @@ const Home = () => {
 
   useEffect(()=>{
 
-    axios.get(`${API}/songs/get`, {
+    axios.get(`${API}/api/songs/get`, {
       withCredentials: true
     })
     .then(response => {

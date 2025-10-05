@@ -23,7 +23,7 @@ const handleSubmit=(e)=>{
         // In a real app, you would upload the files to a server here
         // For now, we'll just add the song to the Redux store
         
-        axios.post(`${API}/songs/upload`, formData,
+        axios.post(`${API}/api/songs/upload`, formData,
           { withCredentials:true}
         )
         .then(response=>{

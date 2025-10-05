@@ -9,7 +9,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",          // local frontend
-    "https://steam-dusky.vercel.app/api"  // deployed frontend
+    // "https://steam-dusky.vercel.app/api"  // deployed frontend
   ],
   credentials: true
 }));
@@ -22,13 +22,13 @@ app.use(cookieParser());
 // POST /auth/register
 // POST /auth/login
 // GET /auth/me
-app.use('/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 // ✅ Songs routes
 // POST /songs/upload
 // GET /songs/get
 // GET /songs/get-song/:mama
 // GET /songs/search-songs
-app.use("/songs", songsRoutes);
+app.use("/api/songs", songsRoutes);
 
 export default app;

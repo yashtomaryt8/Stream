@@ -21,7 +21,7 @@ const Search = () => {
   const handleSearchChange = (e) => {
     const text = e.target.value;
     setSearchText(text);
-    axios.get(`${API}/search-songs?text=${text}`,
+    axios.get(`${API}/api/songs/search-songs?text=${text}`,
       { withCredentials: true }
     ).then((response => {
       dispatch(setFilteredSongs(response.data.songs));

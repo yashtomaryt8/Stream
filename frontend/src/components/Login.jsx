@@ -15,7 +15,7 @@ const Login = () => {
     function handleLogin(event){
       event.preventDefault();
 
-      axios.post(`${API}/auth/login`,
+      axios.post(`${API}/api/auth/login`,
         {
            username,password
         },

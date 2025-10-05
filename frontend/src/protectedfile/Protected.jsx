@@ -6,7 +6,7 @@ const Protected = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/auth/me`, {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/me`, {
       withCredentials: true,
     })
     .then(response => {
