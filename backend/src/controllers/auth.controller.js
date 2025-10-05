@@ -73,7 +73,13 @@ export async function registerUser(req,res){
                 { expiresIn: "1d" }
             );
             
-            res.cookie("token",token)
+            res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,       // MUST be true for HTTPS (Vercel)
+            sameSite: "none",   // MUST be none for cross-domain
+            maxAge: 24 * 60 * 60 * 1000, // 1 day
+            });
+
 
             return res.status(200).json({
                 
